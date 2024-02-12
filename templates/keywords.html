@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keywords</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #ffecd2, #fcb69f);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ffffff;
+        }
+
+        th {
+            background-color: #ff7a59;
+            color: #ffffff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #ffe8d6;
+        }
+
+        tr:hover {
+            background-color: #ffd2b4;
+        }
+    </style>
+</head>
+<body>
+    <h1>URLs with Impressions and Positions</h1>
+    <table>
+        <tr>
+            <th>URL</th>
+            <th>Impressions</th>
+            <th>Average Position</th>
+            <th>Clicks</th>
+        </tr>
+        {% for keyword in keywords %}
+        <tr>
+            <td>{{ keyword['keys'][0] }}</td>
+            <td>{{ keyword['impressions'] }}</td>
+            <td>{{ keyword['position'] }}</td>
+            <td>{{ keyword['clicks'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div>
+       Response Code:  {{response_code}}
+    </div>
+
+    <div>
+       Response String:  {{response_string}}
+    </div>
+</body>
+</html>

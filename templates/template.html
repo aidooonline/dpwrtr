@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pages with Keywords</title>
+    <style>
+        /* Add your desired gradient styles here */
+        body {
+            background: linear-gradient(to bottom, #ffffff, #f2f2f2);
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #333333;
+        }
+        
+        p {
+            color: #666666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pages with Keywords</h1>
+        {% for row in pages_with_keywords %}
+            <h2>Page: {{ row['keys'][0] }}</h2>
+            <p>Keywords: {{ ', '.join(row['keys'][1:]) }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

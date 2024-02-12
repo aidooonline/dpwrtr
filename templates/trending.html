@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trending Videos</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: white;
+            font-size: 32px;
+            margin-top: 100px;
+        }
+        
+        .video {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        
+        .video h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .video p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .video img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .transcript {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Trending Videos</h1>
+        {% for video in videos %}
+        <div class="video">
+            <h2>{{ video.snippet.title }}</h2> 
+            <img src="{{ video.snippet.thumbnails.default.url }}" alt="{{ video.snippet.title }} thumbnail">
+            <p>Video ID: {{ video.id }}</p>
+            {% set transcript_url = get_video_transcript(video.id) %}
+            {% if transcript_url %}
+            <div class="transcript">
+                <a href="{{ transcript_url }}" download>Download Transcript</a>
+            </div>
+            {% else %}
+            <div class="transcript">
+                No transcript available.
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

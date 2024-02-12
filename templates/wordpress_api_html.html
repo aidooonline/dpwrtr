@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Create WordPress Post</title>
+    <style>
+      body {
+        background: linear-gradient(45deg, #00c6ff, #0072ff);
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      form {
+        max-width: 600px;
+        width: 100%;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+      }
+      input[type="file"] {
+        margin-bottom: 20px;
+      }
+      button {
+        background: linear-gradient(45deg, #ff00a0, #ff0066);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: linear-gradient(45deg, #ff0066, #ff00a0);
+      }
+    </style>
+  </head>
+  <body>
+    <form method="POST" action="/create_post" enctype="multipart/form-data">
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" required>
+
+      <label for="content">Content</label>
+      <textarea name="content" id="content" rows="5" required></textarea>
+
+      <label for="image">Image</label>
+      <input type="file" name="image" id="image" accept="image/png, image/jpeg" required>
+
+      <button type="submit">Create Post</button>
+    </form>
+  </body>
+</html>
