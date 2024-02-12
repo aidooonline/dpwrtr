@@ -239,4 +239,4 @@ class HelloWorld(Resource):
 api.add_resource(HelloWorld, "/helloworld/<string:query>")
 
 if __name__ == "__main__":
-    app.run(debug=True,port=2000)
+    app.run(host="0.0.0.0",port=2000)
